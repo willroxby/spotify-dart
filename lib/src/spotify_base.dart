@@ -88,6 +88,9 @@ abstract class SpotifyApiBase {
     });
   }
 
+  SpotifyApiBase._withAccessToken(String accessToken)
+      : this.fromClient(oauth2.Client(oauth2.Credentials(accessToken)));
+
   static FutureOr<oauth2.Client> _getOauth2Client(
       SpotifyApiCredentials credentials, http.Client? httpClient,
       [Function(SpotifyApiCredentials)? callBack]) async {
